@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Post from './components/Post'
@@ -6,13 +6,25 @@ import Comments from './components/Comments'
 import Auth from './components/Auth'
 import LogIn from './components/LogIn'
 import Register from './components/Register'
+import './App.css'
 
 function App() {
+
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    const getData = async () => {
+      const result = await (await fetch('http://localhost:8080/posts')).json()
+      console.log(result)
+      setData(result)
+    }
+    getData()
+  }, [])
 
   return (
     <>
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<Home data={data} />} />
         <Route path='posts/:postId'  >
           <Route index element={<Post />} />
           <Route path='comments' element={<Comments />} />
