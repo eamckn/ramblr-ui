@@ -21,12 +21,14 @@ function App() {
     getData()
   }, [])
 
+  if (!data) return <div id="loading">Loading...</div>
+
   return (
     <>
       <Routes>
         <Route index element={<Home data={data} />} />
         <Route path='posts/:postId'  >
-          <Route index element={<Post />} />
+          <Route index element={<Post data={data} />} />
           <Route path='comments' element={<Comments />} />
         </Route>
         <Route element={<Auth />}>

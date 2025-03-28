@@ -1,9 +1,15 @@
 import { useParams, Link } from "react-router-dom"
 
-const Post = () => {
+const Post = ({ data }) => {
 
     const { postId } = useParams();
 
+    const postData = data.filter(post => 
+            post.id === Number(postId)
+    )
+    
+    console.log(postData)
+    
     return (
         <>
             <h1>Post {postId} can be found here</h1>
