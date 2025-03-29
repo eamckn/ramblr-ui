@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom"
+import { Link, useOutletContext } from "react-router-dom"
 import Preview from "./Preview"
 
-const Home = ({ data }) => {
+const Home = () => {
+
+    const [data] = useOutletContext()
+
     return (
         <>
             <h1>Home page</h1>

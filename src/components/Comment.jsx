@@ -1,15 +1,13 @@
-import { useParams } from "react-router-dom";
 
-const Comments = () => {
-
-    const { postId } = useParams()
+const Comment = ({ content, timestamp }) => {
 
     return (
-        <>
-            <h1>Comments for post {postId} would be here</h1>
-        </>
+        <div className="comment">
+            <p>{content}</p>
+            <p><i>Posted at {timestamp}</i></p>
+        </div>
     )
 
 }
 
-export default Comments
+export default Comment
