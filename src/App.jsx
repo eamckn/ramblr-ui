@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import Root from './components/Root'
 import Home from './components/Home'
 import Post from './components/Post'
 import Auth from './components/Auth'
@@ -25,11 +26,13 @@ function App() {
   return (
     <>
       <Routes>
-        <Route index element={<Home data={data} />} />
-        <Route path='posts/:postId' element={<Post data={data} />}  />
-        <Route element={<Auth />}>
-          <Route path='/login' element={<LogIn />} />
-          <Route path='/register' element={<Register />} />
+        <Route path='/' element={<Root />}>
+          <Route index element={<Home data={data} />} />
+          <Route path='posts/:postId' element={<Post data={data} />}  />
+          <Route element={<Auth />}>
+            <Route path='/login' element={<LogIn />} />
+            <Route path='/register' element={<Register />} />
+          </Route>
         </Route>
       </Routes>
     </>
