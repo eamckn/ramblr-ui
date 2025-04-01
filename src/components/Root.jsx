@@ -10,11 +10,11 @@ const Root = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const result = await fetch('http://localhost:8080/posts')
-                if (result.status >= 500) {
+                const response = await fetch('http://localhost:8080/posts')
+                if (response.status >= 500) {
                     throw new Error('Server error')
                 }
-                const json = await result.json()
+                const json = await response.json()
                 setData(json)
             } catch (error) {
                 setError(error)
