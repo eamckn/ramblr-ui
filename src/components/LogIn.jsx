@@ -1,31 +1,30 @@
 import { Link, useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import AuthContext from "../contexts/authContext"
 
 const LogIn = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const { logIn } = useContext(AuthContext)
+
     const navigate = useNavigate()
 
-
     const handleEmailInput = (e) => {
+        e.preventDefault()
         setEmail(e.target.value)
     }
 
     const handlePasswordInput = (e) => {
+        e.preventDefault()
         setPassword(e.target.value)
     }
 
-    const handleLogin = async () => {
-        const response = await (await fetch('http://localhost:8080/log-in', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, password })
-        })).json()
-        if (response.statusCode === 200) {
-            localStorage.setItem('token', response.token)
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        const logInSuccess = await logIn(email, password)
+        if (logInSuccess) {
             navigate('/')
         } else {
             setEmail('')
