@@ -1,14 +1,13 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import AuthContext from "../contexts/authContext";
+import Header from "./Header";
 
 const Root = () => {
 
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
-
-    const { user } = useContext(AuthContext)
 
     useEffect(() => {
         const getData = async () => {
@@ -34,10 +33,7 @@ const Root = () => {
 
     return (
         <>
-            <header id="header">
-                Header
-                {user ? ` Hello ${user.username}` : null}
-            </header>
+            <Header title={'Ramblr'} />
             <Outlet context={[data]} />
             <footer id="footer">Footer</footer>
         </>
