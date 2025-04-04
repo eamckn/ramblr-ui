@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Outlet } from "react-router-dom";
 import AuthContext from "../contexts/authContext";
 import Header from "./Header";
@@ -8,6 +8,8 @@ const Root = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
+
+    const { authLoading, authError } = useContext(AuthContext)
 
     useEffect(() => {
         const getData = async () => {
@@ -27,14 +29,22 @@ const Root = () => {
         getData()
     }, [])
 
-    if (loading) return <div id="loading">Loading...</div>
+    if (authLoading) return <div id="loading">Loading...</div>
     
-    if (error) return <div id="error">{error}</div>
+    if (authError) return <div id="error">{authError.message}</div>
 
     return (
         <>
             <Header title={'Ramblr'} />
-            <Outlet context={[data]} />
+            {loading ? (
+                <div id="loading">Loading...</div>
+            ) : (
+                    error ? (
+                        <div id="error">{error.message}</div>
+                    ) : (
+                            <Outlet context={[data]} />
+                    )
+            )}
             <footer id="footer">Footer</footer>
         </>
     )
