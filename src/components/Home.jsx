@@ -4,13 +4,13 @@ import AuthContext from "../contexts/authContext"
 
 const Home = () => {
 
-    const [data] = useOutletContext()
+    const [ postsData ] = useOutletContext()
 
     return (
         <>
             <h1>Home page</h1>
             <h2>Blog post previews below:</h2>
-            {data.map(post => {
+            {postsData.map(post => {
                 return <Preview key={post.id} id={post.id} title={post.title} timestamp={post.postedAt} commentCount={post.comments.length} />
             })}
         </>

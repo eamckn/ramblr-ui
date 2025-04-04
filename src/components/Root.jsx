@@ -6,9 +6,9 @@ import Footer from "./Footer";
 
 const Root = () => {
 
-    const [data, setData] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
+    const [postsData, setPostsData] = useState([])
+    const [postsLoading, setPostsLoading] = useState(true)
+    const [postsError, setPostsError] = useState(null)
 
     const { authLoading, authError } = useContext(AuthContext)
 
@@ -20,11 +20,11 @@ const Root = () => {
                     throw new Error('Server error')
                 }
                 const json = await response.json()
-                setData(json)
+                setPostsData(json)
             } catch (error) {
-                setError(error)
+                setPostsError(error)
             } finally {
-                setLoading(false)
+                setPostsLoading(false)
             }
         }
         getData()
@@ -37,13 +37,13 @@ const Root = () => {
     return (
         <>
             <Header title={'Ramblr'} />
-            {loading ? (
+            {postsLoading ? (
                 <div id="loading">Loading...</div>
             ) : (
-                    error ? (
-                        <div id="error">{error.message}</div>
+                    postsError ? (
+                        <div id="error">{postsError.message}</div>
                     ) : (
-                            <Outlet context={[data]} />
+                            <Outlet context={[ postsData ]} />
                     )
             )}
             <Footer />

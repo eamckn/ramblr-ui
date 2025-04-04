@@ -6,14 +6,10 @@ const Post = () => {
     const { postId } = useParams();
     const [ data ] = useOutletContext()
 
-    //console.log(data)
-
     const postData = data.find(post => 
             post.id === Number(postId)
     )
-    
-    //console.log(postData)
-    
+        
     return (
         <>
             <h1>Post {postId} can be found here</h1>
