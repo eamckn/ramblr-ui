@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { Outlet } from "react-router-dom";
 import AuthContext from "../contexts/authContext";
-import Header from "./Header";
+import Header from "./Header/Header";
 import Footer from "./Footer";
 
 const Root = () => {
