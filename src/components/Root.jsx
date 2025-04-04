@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Outlet } from "react-router-dom";
 import AuthContext from "../contexts/authContext";
 import Header from "./Header/Header";
-import Footer from "./Footer";
+import Footer from "./Footer/Footer";
 
 const Root = () => {
 
@@ -37,15 +37,17 @@ const Root = () => {
     return (
         <>
             <Header title={'Ramblr'} />
-            {postsLoading ? (
-                <div id="loading">Loading...</div>
-            ) : (
-                    postsError ? (
-                        <div id="error">{postsError.message}</div>
-                    ) : (
-                            <Outlet context={[ postsData ]} />
-                    )
-            )}
+            <div id="main">
+                {postsLoading ? (
+                    <div id="loading">Loading...</div>
+                ) : (
+                        postsError ? (
+                            <div id="error">{postsError.message}</div>
+                        ) : (
+                                <Outlet context={[ postsData ]} />
+                        )
+                )}
+            </div>
             <Footer />
         </>
     )

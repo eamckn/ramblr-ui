@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useContext } from "react"
 import AuthContext from "../../contexts/authContext"
+import styles from './Header.module.css'
 
 const Header = ({ title }) => {
 
@@ -13,19 +14,19 @@ const Header = ({ title }) => {
 
     return (
 
-        <header id="header">
-            <div id="title">
-                {title}
+        <header id={styles.header}>
+            <div className={styles.title}>
+                <Link to='/'>{title}</Link>
             </div>
             {user ? (
-                <div id="logged-in">
-                    <div id="message">Welcome {user.username}</div>
-                    <button onClick={handleLogOut}>Log out</button>
-                </div>        
+                <ul className={styles.userOptions}>
+                    <li className={styles.userMessage}>Welcome, {user.username}!</li>
+                    <li><button className={styles.logOut} onClick={handleLogOut}>Log out</button></li>
+                </ul>        
             ) : (
-                <ul id="logged-out">
-                    <li><Link to='/login'>Click here to log in</Link></li>
-                    <li><Link to='/register'>Click here to register</Link></li>
+                <ul className={styles.userOptions}>
+                    <li><Link to='/login'>Log in</Link></li>
+                    <li><Link to='/register'>Register</Link></li>
                 </ul>
             )}
         </header>
