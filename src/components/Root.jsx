@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Outlet } from "react-router-dom";
 import AuthContext from "../contexts/authContext";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const Root = () => {
 
@@ -45,7 +46,7 @@ const Root = () => {
                             <Outlet context={[data]} />
                     )
             )}
-            <footer id="footer">Footer</footer>
+            <Footer />
         </>
     )
 
