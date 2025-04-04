@@ -43,7 +43,6 @@ const LogIn = () => {
                 <button onClick={handleLogin}>Log in</button>
             </div>
             
-            <Link to='/'>Back to home page</Link>
         </>
     )
 

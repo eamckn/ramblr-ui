@@ -48,7 +48,6 @@ const Register = () => {
                 <button onClick={handleRegistration}>Register</button>
             </div>
             
-            <Link to='/'>Back to home page</Link>
         </>
     )
 

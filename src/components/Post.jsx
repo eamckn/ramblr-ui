@@ -27,7 +27,6 @@ const Post = () => {
             ) : (
                     <div id="no-user"><b>Sign in</b> to leave a comment</div>
             )}
-            <Link to='/'><h2>Go back to home <i>here</i></h2></Link>
         </>
     )
 }
