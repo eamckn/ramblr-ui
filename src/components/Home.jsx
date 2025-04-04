@@ -1,6 +1,5 @@
-import { Link, useOutletContext } from "react-router-dom"
+import { useOutletContext } from "react-router-dom"
 import Preview from "./Preview"
-import AuthContext from "../contexts/authContext"
 
 const Home = () => {
 
