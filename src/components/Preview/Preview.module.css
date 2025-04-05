@@ -1,0 +1,20 @@
+.preview {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  padding: 1rem;
+  border: 1px solid black;
+
+  width: 80%;
+  min-width: min-content;
+}
+
+.content {
+  line-height: 1.5rem;
+}
+
+.readMore {
+  align-self: flex-end;
+}

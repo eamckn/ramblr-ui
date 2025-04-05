@@ -1,0 +1,10 @@
+#previewDisplay {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  justify-items: center;
+
+  column-gap: 2rem;
+  row-gap: 2rem;
+
+  padding: 2rem;
+}
