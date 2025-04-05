@@ -1,0 +1,35 @@
+import { Link } from "react-router-dom"
+import styles from './Preview.module.css'
+
+const Preview = ({ id, title, content, timestamp, commentCount }) => {
+
+    const slicedContent = content.slice(0, 100)
+
+    const contentPreview = slicedContent.slice(-1) === ' ' ? (
+        slicedContent.slice(0, -1) + '...'
+    ) : (
+            slicedContent + '...'
+        )
+    
+    function formatDate(timestamp) {
+        const date = new Date(timestamp)
+
+        const month = String(date.getMonth() + 1);
+        const day = String(date.getDate()).padStart(2, '0');
+        const year = date.getFullYear();
+
+        return `${month}/${day}/${year}`;
+    }
+
+    return (
+        <div className={styles.preview}>
+            <h2 className="title">{title}</h2>
+            <p className={styles.content}>{contentPreview}</p>
+            <div className={styles.dateComments}>Posted on {formatDate(timestamp)} • {commentCount} comments</div>
+            <Link to={'/posts/' + id} className={styles.readMore}>Read more</Link>
+        </div>
+    )
+
+}
+
+export default Preview
