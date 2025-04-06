@@ -25,7 +25,7 @@ const Post = () => {
                     <textarea id="content"></textarea>
                 </div>
             ) : (
-                    <div id="no-user"><b>Sign in</b> to leave a comment</div>
+                    <div id="no-user"><Link to='/login'><b>Sign in</b></Link> to leave a comment</div>
             )}
         </>
     )
