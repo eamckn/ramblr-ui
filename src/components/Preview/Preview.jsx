@@ -14,11 +14,11 @@ const Preview = ({ id, title, content, timestamp, commentCount }) => {
     function formatDate(timestamp) {
         const date = new Date(timestamp)
 
-        const month = String(date.getMonth() + 1);
+        const month = date.toLocaleString('default', { month: 'long' });
         const day = String(date.getDate()).padStart(2, '0');
         const year = date.getFullYear();
 
-        return `${month}/${day}/${year}`;
+        return `${month} ${day}, ${year}`;
     }
 
     return (
