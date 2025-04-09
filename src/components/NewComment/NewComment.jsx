@@ -46,7 +46,7 @@ const NewComment = () => {
     return (
         <>
             <form onSubmit={handleCommentSubmit} className={styles.newComment}>
-                <textarea className={styles.commentInput} rows='5' onChange={handleCommentInput} value={content} placeholder='Add a new comment' />
+                <textarea className={styles.commentInput} rows='5' onChange={handleCommentInput} value={content} placeholder='Add a new comment' required/>
                 <button className={styles.commentButton} type='submit'>Post</button>
             </form>
             {submitError && <div className={styles.submitError}>There was an error trying to submit your comment. Please try again.</div>}
