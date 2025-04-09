@@ -12,8 +12,8 @@ const Root = () => {
 
     const { authLoading, authError } = useContext(AuthContext)
 
-    useEffect(() => {
-        const getData = async () => {
+    const getData = async () => {
+            setPostsLoading(true)
             try {
                 const response = await fetch('http://localhost:8080/posts')
                 if (response.status >= 500) {
@@ -27,6 +27,8 @@ const Root = () => {
                 setPostsLoading(false)
             }
         }
+
+    useEffect(() => {
         getData()
     }, [])
 
@@ -44,7 +46,7 @@ const Root = () => {
                         postsError ? (
                             <div id="error">{postsError.message}</div>
                         ) : (
-                                <Outlet context={[ postsData ]} />
+                                <Outlet context={[ postsData, getData ]} />
                         )
                 )}
             </div>
