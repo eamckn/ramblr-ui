@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useParams, useOutletContext } from 'react-router-dom';
 import AuthContext from '../../contexts/authContext';
 import styles from './NewComment.module.css'
@@ -10,7 +10,7 @@ const NewComment = () => {
     const [submitError, setSubmitError] = useState(null)
 
     const { postId } = useParams()
-    const [ data, getData ] = useOutletContext()
+    const { getData } = useOutletContext()
     const { user } = useContext(AuthContext)
 
     const handleCommentInput = (e) => {
