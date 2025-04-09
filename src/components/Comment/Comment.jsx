@@ -16,7 +16,7 @@ const Comment = ({ content, timestamp, user }) => {
         const date = new Date(timestamp)
 
         let hours = String(date.getHours())
-        const minutes = String(date.getMinutes())
+        const minutes = String(date.getMinutes()).padStart(2, '0')
         let suffix;
 
         if (hours === '0') { // Midnight
