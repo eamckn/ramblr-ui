@@ -11,7 +11,12 @@ const Home = () => {
             <h1 className={styles.title}>Home</h1>
             <div id={styles.previewDisplay}>
                 {postsData.map(post => {
-                    return <Preview key={post.id} id={post.id} title={post.title} content={post.content} timestamp={post.postedAt} commentCount={post.comments.length} />
+                    return <Preview key={post.id}
+                        id={post.id}
+                        title={post.title}
+                        content={post.content}
+                        timestamp={post.postedAt}
+                        commentCount={post.comments.length} />
                 })}
             </div>
         </div>
