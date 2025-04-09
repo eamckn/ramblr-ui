@@ -46,7 +46,7 @@ const Root = () => {
                         postsError ? (
                             <div id="error">{postsError.message}</div>
                         ) : (
-                                <Outlet context={[ postsData, getData ]} />
+                                <Outlet context={{ postsData, getData }} />
                         )
                 )}
             </div>

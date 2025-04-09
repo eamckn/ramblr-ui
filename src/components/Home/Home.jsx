@@ -4,7 +4,7 @@ import styles from './Home.module.css'
 
 const Home = () => {
 
-    const [ postsData ] = useOutletContext()
+    const { postsData }  = useOutletContext()
 
     return (
         <div id={styles.home}>

@@ -8,10 +8,10 @@ import styles from './Post.module.css'
 const Post = () => {
 
     const { postId } = useParams();
-    const [ data ] = useOutletContext()
+    const { postsData } = useOutletContext()
     const { user } = useContext(AuthContext)
 
-    const postData = data.find(post => 
+    const postData = postsData.find(post => 
             post.id === Number(postId)
     )
         
