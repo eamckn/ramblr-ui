@@ -23,12 +23,17 @@ const Post = () => {
             </div>
             <div className={styles.commentSection}>
                 {postData.comments.map(comment => {
-                    return <Comment key={comment.id} content={comment.content} timestamp={comment.postedAt} user={comment.user} />
+                    return <Comment key={comment.id}
+                        content={comment.content}
+                        timestamp={comment.postedAt}
+                        user={comment.user} />
                 })}
                 {user ? (
                     <NewComment />
                 ) : (
-                    <div className={styles.noUser}><Link to='/login'><b>Sign in</b></Link> to leave a comment</div>
+                        <div className={styles.noUser}>
+                            <Link to='/login'><b>Sign in</b></Link> to leave a comment
+                        </div>
                 )}
             </div>
         </div>

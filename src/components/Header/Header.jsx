@@ -21,7 +21,9 @@ const Header = ({ title }) => {
             {user ? (
                 <ul className={styles.userOptions}>
                     <li className={styles.userMessage}>Welcome, {user.username}!</li>
-                    <li><button className={styles.logOut} onClick={handleLogOut}>Log out</button></li>
+                    <li>
+                        <button className={styles.logOut} onClick={handleLogOut}>Log out</button>
+                    </li>
                 </ul>        
             ) : (
                 <ul className={styles.userOptions}>
