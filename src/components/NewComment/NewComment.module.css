@@ -1,0 +1,35 @@
+.submitting {
+  margin: 0 auto;
+}
+
+.newComment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+
+.commentInput {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.5rem;
+
+  width: 100%;
+  resize: none;
+
+  padding: 1rem;
+}
+
+.commentButton {
+  max-width: 10%;
+  min-width: min-content;
+
+  padding: 0.5rem 1rem;
+  margin-left: auto;
+}
+
+.submitError {
+  margin: 0 auto;
+}
