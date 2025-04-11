@@ -10,13 +10,14 @@ const Home = () => {
         <div id={styles.home}>
             <h1 className={styles.title}>Home</h1>
             <div id={styles.previewDisplay}>
-                {postsData.map(post => {
+                {postsData.map((post, index) => {
                     return <Preview key={post.id}
                         id={post.id}
                         title={post.title}
                         content={post.content}
                         timestamp={post.postedAt}
-                        commentCount={post.comments.length} />
+                        commentCount={post.comments.length}
+                        animationOrder={index + 1} />
                 })}
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import styles from './Preview.module.css'
 
-const Preview = ({ id, title, content, timestamp, commentCount }) => {
+const Preview = ({ id, title, content, timestamp, commentCount, animationOrder }) => {
 
     const slicedContent = content.slice(0, 100)
 
@@ -22,7 +22,7 @@ const Preview = ({ id, title, content, timestamp, commentCount }) => {
     }
 
     return (
-        <div className={styles.preview}>
+        <div className={styles.preview} style={{ '--animation-order': `${animationOrder}`}}>
             <h2 className={styles.title}>{title}</h2>
             <p className={styles.content}>{contentPreview}</p>
             <div className={styles.dateComments}>
