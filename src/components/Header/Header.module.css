@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .header {
   display: flex;
   justify-content: space-between;
@@ -6,11 +7,19 @@
   position: relative;
 
   background-color: var(--primary-bg);
+=======
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+>>>>>>> b74a9f74861694d68dcbe7dc46f7c9b696a0b4b0
 
   padding: 1rem 4rem;
   min-height: 10%;
 }
 
+<<<<<<< HEAD
 header::after {
   content: "";
   position: absolute;
@@ -28,6 +37,10 @@ header::after {
 
 .link {
   text-decoration: none;
+=======
+.title {
+  font-size: 2rem;
+>>>>>>> b74a9f74861694d68dcbe7dc46f7c9b696a0b4b0
 }
 
 .userOptions {
@@ -37,6 +50,7 @@ header::after {
 
   li {
     margin: auto 0;
+<<<<<<< HEAD
 
     font-size: 1.15rem;
     color: var(--primary-color);
@@ -48,12 +62,16 @@ header::after {
     a:visited {
       color: inherit;
     }
+=======
+    font-size: 1.15rem;
+>>>>>>> b74a9f74861694d68dcbe7dc46f7c9b696a0b4b0
   }
 }
 
 .logOut {
   font-size: 1.15rem;
   padding: 0.5rem 1rem;
+<<<<<<< HEAD
   border: 1px solid var(--secondary-bg);
   border-radius: 10%;
 
@@ -65,4 +83,6 @@ header::after {
 .logOut:hover {
   background-color: var(--secondary-bg);
   transform: scale(1.1);
+=======
+>>>>>>> b74a9f74861694d68dcbe7dc46f7c9b696a0b4b0
 }

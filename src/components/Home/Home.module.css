@@ -6,10 +6,13 @@
   padding: 1rem 2rem;
 }
 
+<<<<<<< HEAD
 .title {
   color: var(--secondary-color);
 }
 
+=======
+>>>>>>> b74a9f74861694d68dcbe7dc46f7c9b696a0b4b0
 #previewDisplay {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
