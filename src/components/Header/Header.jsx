@@ -14,7 +14,6 @@ const Header = ({ title }) => {
 
     return (
 
-<<<<<<< HEAD
         <header className={styles.header}>
             <Link to='/' className={styles.link}>
                 <div className={styles.title}>{title}</div>
@@ -34,25 +33,6 @@ const Header = ({ title }) => {
                         </>
                 )}
             </ul>
-=======
-        <header id={styles.header}>
-            <div className={styles.title}>
-                <Link to='/'>{title}</Link>
-            </div>
-            {user ? (
-                <ul className={styles.userOptions}>
-                    <li className={styles.userMessage}>Welcome, {user.username}!</li>
-                    <li>
-                        <button className={styles.logOut} onClick={handleLogOut}>Log out</button>
-                    </li>
-                </ul>        
-            ) : (
-                <ul className={styles.userOptions}>
-                    <li><Link to='/login'>Log in</Link></li>
-                    <li><Link to='/register'>Register</Link></li>
-                </ul>
-            )}
->>>>>>> b74a9f74861694d68dcbe7dc46f7c9b696a0b4b0
         </header>
 
     )

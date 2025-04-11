@@ -4,19 +4,13 @@
 
   gap: 1rem;
 
-<<<<<<< HEAD
   background-color: var(--secondary-bg);
   padding: 1rem;
-=======
-  padding: 1rem;
-  border: 1px solid black;
->>>>>>> b74a9f74861694d68dcbe7dc46f7c9b696a0b4b0
 
   width: 100%;
   min-width: min-content;
 }
 
-<<<<<<< HEAD
 .title {
   color: var(--secondary-color);
 }
@@ -28,18 +22,11 @@
 
 .dateComments {
   color: var(--primary-color);
-=======
-.content {
-  line-height: 1.5rem;
->>>>>>> b74a9f74861694d68dcbe7dc46f7c9b696a0b4b0
 }
 
 .readMore {
   align-self: flex-end;
-<<<<<<< HEAD
 
   color: var(--primary-color);
   text-decoration: none;
-=======
->>>>>>> b74a9f74861694d68dcbe7dc46f7c9b696a0b4b0
 }

@@ -16,25 +16,17 @@
 
 .title {
   padding: 2rem;
-<<<<<<< HEAD
 
   color: var(--secondary-color);
-=======
->>>>>>> b74a9f74861694d68dcbe7dc46f7c9b696a0b4b0
 }
 
 .content {
   line-height: 1.5rem;
 
-<<<<<<< HEAD
   padding: 2rem;
 
   background-color: var(--secondary-bg);
   color: var(--primary-color);
-=======
-  border: 1px solid black;
-  padding: 2rem;
->>>>>>> b74a9f74861694d68dcbe7dc46f7c9b696a0b4b0
 }
 
 .commentSection {
@@ -52,7 +44,6 @@
 
   margin: 0 auto;
   padding: 1rem 0;
-<<<<<<< HEAD
 
   color: var(--secondary-color);
 
@@ -60,6 +51,4 @@
     text-decoration: none;
     color: inherit;
   }
-=======
->>>>>>> b74a9f74861694d68dcbe7dc46f7c9b696a0b4b0
 }
