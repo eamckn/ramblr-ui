@@ -69,7 +69,7 @@ const Form = ({ type = 'login' }) => {
             </form>
         ) : (
                 <form className={styles.userForm} onSubmit={handleRegistration}>
-                    <h1>Register</h1>
+                    <h1 className={styles.formName}>Register</h1>
                     <input className={styles.formInput}
                         type="text"
                         name="username"

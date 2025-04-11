@@ -6,6 +6,10 @@
   padding: 1rem 2rem;
 }
 
+.title {
+  color: var(--secondary-color);
+}
+
 #previewDisplay {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));

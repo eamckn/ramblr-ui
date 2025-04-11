@@ -1,10 +1,14 @@
 #footer {
   padding: 1rem;
-  border-top: 1px solid black;
+  border-top: 2px solid var(--secondary-bg);
+
+  background-color: var(--primary-bg);
 
   div {
     max-width: fit-content;
 
     margin: auto;
+
+    color: var(--primary-color);
   }
 }

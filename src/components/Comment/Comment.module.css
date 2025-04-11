@@ -6,7 +6,9 @@
   overflow-wrap: anywhere;
 
   padding: 1rem;
-  border: 1px solid black;
+
+  background-color: var(--secondary-bg);
+  color: var(--primary-color);
 }
 
 .info {

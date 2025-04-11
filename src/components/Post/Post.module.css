@@ -16,13 +16,17 @@
 
 .title {
   padding: 2rem;
+
+  color: var(--secondary-color);
 }
 
 .content {
   line-height: 1.5rem;
 
-  border: 1px solid black;
   padding: 2rem;
+
+  background-color: var(--secondary-bg);
+  color: var(--primary-color);
 }
 
 .commentSection {
@@ -40,4 +44,11 @@
 
   margin: 0 auto;
   padding: 1rem 0;
+
+  color: var(--secondary-color);
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }

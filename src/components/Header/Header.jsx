@@ -14,23 +14,25 @@ const Header = ({ title }) => {
 
     return (
 
-        <header id={styles.header}>
-            <div className={styles.title}>
-                <Link to='/'>{title}</Link>
-            </div>
-            {user ? (
-                <ul className={styles.userOptions}>
-                    <li className={styles.userMessage}>Welcome, {user.username}!</li>
-                    <li>
-                        <button className={styles.logOut} onClick={handleLogOut}>Log out</button>
-                    </li>
-                </ul>        
-            ) : (
-                <ul className={styles.userOptions}>
-                    <li><Link to='/login'>Log in</Link></li>
-                    <li><Link to='/register'>Register</Link></li>
-                </ul>
-            )}
+        <header className={styles.header}>
+            <Link to='/' className={styles.link}>
+                <div className={styles.title}>{title}</div>
+            </Link>
+            <ul className={styles.userOptions}>
+                {user ? (
+                    <>
+                        <li className={styles.userMessage}>Welcome, {user.username}!</li>
+                        <li>
+                            <button className={styles.logOut} onClick={handleLogOut}>Log out</button>
+                        </li>       
+                    </>
+                ) : (
+                        <>
+                            <li><Link to='/login'>Log in</Link></li>
+                            <li><Link to='/register'>Register</Link></li>
+                        </>
+                )}
+            </ul>
         </header>
 
     )

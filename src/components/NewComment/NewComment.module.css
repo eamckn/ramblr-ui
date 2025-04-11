@@ -8,26 +8,45 @@
   gap: 0.5rem;
 
   padding: 0.5rem;
-  border: 1px solid black;
 }
 
 .commentInput {
   font-family: inherit;
   font-size: inherit;
   line-height: 1.5rem;
+  background-color: var(--secondary-bg);
+  color: var(--primary-color);
 
   width: 100%;
   resize: none;
 
   padding: 1rem;
+  border: none;
+}
+
+.commentInput::placeholder {
+  color: var(--primary-color);
+  font-style: italic;
 }
 
 .commentButton {
+  padding: 0.5rem 1rem;
+  margin-left: auto;
+  border: 1px solid var(--secondary-bg);
+  border-radius: 10%;
+
   max-width: 10%;
   min-width: min-content;
 
-  padding: 0.5rem 1rem;
-  margin-left: auto;
+  background-color: transparent;
+  color: var(--primary-color);
+
+  transition: background-color 0.25s ease-out, transform 0.25s ease-out;
+}
+
+.commentButton:hover {
+  background-color: var(--secondary-bg);
+  transform: scale(1.1);
 }
 
 .submitError {

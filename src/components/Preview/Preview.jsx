@@ -23,7 +23,7 @@ const Preview = ({ id, title, content, timestamp, commentCount }) => {
 
     return (
         <div className={styles.preview}>
-            <h2 className="title">{title}</h2>
+            <h2 className={styles.title}>{title}</h2>
             <p className={styles.content}>{contentPreview}</p>
             <div className={styles.dateComments}>
                 Posted on {formatDate(timestamp)} • {commentCount} comments

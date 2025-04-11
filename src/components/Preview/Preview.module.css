@@ -4,17 +4,29 @@
 
   gap: 1rem;
 
+  background-color: var(--secondary-bg);
   padding: 1rem;
-  border: 1px solid black;
 
   width: 100%;
   min-width: min-content;
 }
 
+.title {
+  color: var(--secondary-color);
+}
+
 .content {
   line-height: 1.5rem;
+  color: var(--primary-color);
+}
+
+.dateComments {
+  color: var(--primary-color);
 }
 
 .readMore {
   align-self: flex-end;
+
+  color: var(--primary-color);
+  text-decoration: none;
 }

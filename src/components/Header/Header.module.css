@@ -1,15 +1,33 @@
-#header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
+
+  position: relative;
+
+  background-color: var(--primary-bg);
 
   padding: 1rem 4rem;
   min-height: 10%;
 }
 
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 2px; /* border thickness */
+  background-color: var(--secondary-color); /* border color */
+}
+
 .title {
   font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.link {
+  text-decoration: none;
 }
 
 .userOptions {
@@ -19,11 +37,32 @@
 
   li {
     margin: auto 0;
+
     font-size: 1.15rem;
+    color: var(--primary-color);
+
+    a {
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: inherit;
+    }
   }
 }
 
 .logOut {
   font-size: 1.15rem;
   padding: 0.5rem 1rem;
+  border: 1px solid var(--secondary-bg);
+  border-radius: 10%;
+
+  background-color: transparent;
+  color: var(--primary-color);
+  transition: background-color 0.25s ease-out, transform 0.25s ease-out;
+}
+
+.logOut:hover {
+  background-color: var(--secondary-bg);
+  transform: scale(1.1);
 }
