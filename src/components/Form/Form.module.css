@@ -15,6 +15,11 @@
 
   width: 40%;
   height: min-content;
+
+  animation: animateInBottom;
+  animation-duration: 200ms;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-in;
 }
 
 .formName {
@@ -52,4 +57,16 @@
   background-color: transparent;
   border: 1px solid var(--primary-bg);
   transform: scale(1.1);
+}
+
+@keyframes animateInBottom {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) translateY(50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
