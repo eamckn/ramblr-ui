@@ -18,6 +18,12 @@
   padding: 2rem;
 
   color: var(--secondary-color);
+
+  animation-name: animateInLeft;
+  animation-duration: 500ms;
+  animation-delay: 100ms;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-in;
 }
 
 .content {
@@ -27,6 +33,12 @@
 
   background-color: var(--secondary-bg);
   color: var(--primary-color);
+
+  animation-name: animateInRight;
+  animation-duration: 500ms;
+  animation-delay: 100ms;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-in;
 }
 
 .commentSection {
@@ -50,5 +62,29 @@
   a {
     text-decoration: none;
     color: inherit;
+  }
+}
+
+@keyframes animateInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes animateInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
   }
 }

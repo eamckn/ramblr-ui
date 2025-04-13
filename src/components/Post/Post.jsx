@@ -22,11 +22,12 @@ const Post = () => {
                 <p className={styles.content}>{postData.content}</p>
             </div>
             <div className={styles.commentSection}>
-                {postData.comments.map(comment => {
+                {postData.comments.map((comment, index) => {
                     return <Comment key={comment.id}
                         content={comment.content}
                         timestamp={comment.postedAt}
-                        user={comment.user} />
+                        user={comment.user}
+                        animationOrder={index + 1} />
                 })}
                 {user ? (
                     <NewComment />

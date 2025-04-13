@@ -1,6 +1,6 @@
 import styles from './Comment.module.css'
 
-const Comment = ({ content, timestamp, user }) => {
+const Comment = ({ content, timestamp, user, animationOrder }) => {
 
     function formatDate(timestamp) {
         const date = new Date(timestamp)
@@ -35,7 +35,7 @@ const Comment = ({ content, timestamp, user }) => {
     }
 
     return (
-        <div className={styles.comment}>
+        <div className={styles.comment} style={{ '--animation-order': `${animationOrder}`}}>
             <div className={styles.info}>
                 <h3>{user.username}</h3>
                 <p><i>{formatDate(timestamp)} at {formatTime(timestamp)}</i></p>
