@@ -2,13 +2,13 @@
   padding: 1rem;
   border-top: 2px solid var(--secondary-bg);
 
-  background-color: var(--primary-bg);
+  background-color: var(--secondary-bg);
 
   div {
     max-width: fit-content;
 
     margin: auto;
 
-    color: var(--primary-color);
+    color: var(--primary-bg);
   }
 }

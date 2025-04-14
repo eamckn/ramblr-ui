@@ -4,7 +4,7 @@ const Footer = () => {
 
     return (
         <footer id={styles.footer}>
-            <div>©Eamon McKeon 2025</div>
+            <div><b>© Eamon McKeon 2025</b></div>
         </footer>
     )
 
