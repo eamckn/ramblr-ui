@@ -4,16 +4,15 @@
 
   gap: 2rem;
 
-  margin: auto;
+  margin: 0 auto;
   padding: 2rem;
 
   background-color: var(--secondary-bg);
 
-  position: absolute;
-  top: 20%;
-  left: 30%;
+  position: relative;
+  top: 15%;
 
-  width: 40%;
+  min-width: 40%;
   height: min-content;
 
   animation: animateInBottom;
