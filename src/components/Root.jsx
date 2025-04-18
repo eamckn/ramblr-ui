@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import AuthContext from "../contexts/authContext";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
+import ServerError from "./ServerError/ServerError";
 
 const Root = () => {
 
@@ -11,6 +12,8 @@ const Root = () => {
     const [postsError, setPostsError] = useState(null)
 
     const { authLoading, authError } = useContext(AuthContext)
+
+    const serverError = authError || postsError;
 
     const getData = async () => {
             setPostsLoading(true)
@@ -29,12 +32,17 @@ const Root = () => {
         }
 
     useEffect(() => {
-        getData()
+        // Simulate network latency
+        setTimeout(() => {
+            getData()
+        }, 2000);
     }, [])
 
     if (authLoading) return <div id="loading">Loading...</div>
     
-    if (authError) return <div id="error">{authError.message}</div>
+    // if (authError) return <div id="error">{authError.message}</div>
+
+    if (serverError) console.log(serverError)
 
     return (
         <>
@@ -43,8 +51,8 @@ const Root = () => {
                 {postsLoading ? (
                     <div id="loading">Loading...</div>
                 ) : (
-                        postsError ? (
-                            <div id="error">{postsError.message}</div>
+                        (serverError)  ? (
+                            <ServerError error={serverError}/>
                         ) : (
                                 <Outlet context={{ postsData, getData }} />
                         )
