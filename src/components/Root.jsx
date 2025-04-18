@@ -14,6 +14,7 @@ const Root = () => {
     const { authLoading, authError } = useContext(AuthContext)
 
     const serverError = authError || postsError;
+    const loading = authLoading || postsLoading;
 
     const getData = async () => {
             setPostsLoading(true)
@@ -38,18 +39,14 @@ const Root = () => {
         }, 2000);
     }, [])
 
-    if (authLoading) return <div id="loading">Loading...</div>
-    
-    // if (authError) return <div id="error">{authError.message}</div>
-
     if (serverError) console.log(serverError)
 
     return (
         <>
             <Header title={'Ramblr'} />
             <div id="main">
-                {postsLoading ? (
-                    <div id="loading">Loading...</div>
+                {loading ? (
+                    <div className='loader'></div>
                 ) : (
                         (serverError)  ? (
                             <ServerError error={serverError}/>
