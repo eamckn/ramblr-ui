@@ -28,8 +28,8 @@ const Header = ({ title }) => {
                     </>
                 ) : (
                         <>
-                            <li><Link to='/login'>Log in</Link></li>
-                            <li><Link to='/register'>Register</Link></li>
+                            <li><Link to='/login' className={styles.link}>Log in</Link></li>
+                            <li><Link to='/register' className={styles.link}>Register</Link></li>
                         </>
                 )}
             </ul>
