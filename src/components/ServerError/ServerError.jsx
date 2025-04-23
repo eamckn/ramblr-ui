@@ -5,7 +5,7 @@ const ServerError = ({ error }) => {
 
     const [isExpanded, setIsExpanded] = useState(false)
 
-    console.log(error)
+    console.error(error)
 
     const handleExpand = (e) => {
         e.preventDefault()

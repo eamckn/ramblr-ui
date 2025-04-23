@@ -39,8 +39,6 @@ const Root = () => {
         }, 2000);
     }, [])
 
-    if (serverError) console.log(serverError)
-
     return (
         <>
             <Header title={'Ramblr'} />
