@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  flex: auto;
+}
+
 .userForm {
   display: flex;
   flex-direction: column;
@@ -13,7 +18,7 @@
   top: 15%;
 
   width: 40%;
-  min-width: 400px;
+  min-width: 500px;
   height: min-content;
 
   animation: animateInBottom;
@@ -43,10 +48,10 @@
   margin: 0 auto;
   padding: 0.75rem;
   border: 1px solid transparent;
-  border-radius: 10%;
 
-  max-width: 50%;
+  width: 40%;
 
+  font-size: 1.25rem;
   background-color: var(--primary-bg);
   color: var(--primary-color);
   transition: background-color 0.25s ease-out, transform 0.25s ease-out,
@@ -68,5 +73,18 @@
   100% {
     opacity: 1;
     transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .userForm {
+    width: 80%;
+    min-width: auto;
+  }
+
+  .formButton {
+    border-radius: 0;
+
+    width: 100%;
   }
 }

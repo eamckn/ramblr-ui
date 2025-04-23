@@ -76,39 +76,10 @@ const Form = ({ type = 'login' }) => {
     }
 
     return (
-        type === "login" ? (
-            <form className={styles.userForm} onSubmit={handleLogin}>
-                <h1 className={styles.formName}>Login</h1>
-                <input className={styles.formInput}
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={handleEmailInput}
-                    required />
-                <input className={styles.formInput}
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={handlePasswordInput}
-                    required />
-                {loginErrors.length > 0 && <FormErrors errors={loginErrors} />}
-                <button className={styles.formButton} type="submit">Log in</button>
-            </form>
-        ) : (
-                <form className={styles.userForm} onSubmit={handleRegistration}>
-                    <h1 className={styles.formName}>Register</h1>
-                    <input className={styles.formInput}
-                        type="text"
-                        name="username"
-                        id="username"
-                        placeholder="Username"
-                        value={username}
-                        onChange={handleUsernameInput}
-                        required />
+        <div className={styles.container}>
+            {type === "login" ? (
+                <form className={styles.userForm} onSubmit={handleLogin}>
+                    <h1 className={styles.formName}>Login</h1>
                     <input className={styles.formInput}
                         type="email"
                         name="email"
@@ -125,10 +96,41 @@ const Form = ({ type = 'login' }) => {
                         value={password}
                         onChange={handlePasswordInput}
                         required />
-                    {passwordErrors.length > 0 && <FormErrors errors={passwordErrors} />}
-                    <button className={styles.formButton} type="submit">Register</button>
+                    {loginErrors.length > 0 && <FormErrors errors={loginErrors} />}
+                    <button className={styles.formButton} type="submit">Log in</button>
                 </form>
-        )
+            ) : (
+                    <form className={styles.userForm} onSubmit={handleRegistration}>
+                        <h1 className={styles.formName}>Register</h1>
+                        <input className={styles.formInput}
+                            type="text"
+                            name="username"
+                            id="username"
+                            placeholder="Username"
+                            value={username}
+                            onChange={handleUsernameInput}
+                            required />
+                        <input className={styles.formInput}
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={handleEmailInput}
+                            required />
+                        <input className={styles.formInput}
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={handlePasswordInput}
+                            required />
+                        {passwordErrors.length > 0 && <FormErrors errors={passwordErrors} />}
+                        <button className={styles.formButton} type="submit">Register</button>
+                    </form>
+            )}
+        </div>
     )
 
 }

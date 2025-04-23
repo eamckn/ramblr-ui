@@ -88,3 +88,25 @@
     transform: none;
   }
 }
+
+@media (max-width: 768px) {
+  .post {
+    gap: 1rem;
+
+    margin: 0;
+    width: 100%;
+  }
+
+  .title {
+    padding: 2rem 1rem;
+  }
+
+  .content {
+    margin: 0 1rem;
+    padding: 1rem;
+  }
+
+  .commentSection {
+    width: 80%;
+  }
+}
