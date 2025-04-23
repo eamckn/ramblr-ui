@@ -15,7 +15,7 @@ const Header = ({ title }) => {
     return (
 
         <header className={styles.header}>
-            <Link to='/' className={styles.link}>
+            <Link to='/'>
                 <div className={styles.title}>{title}</div>
             </Link>
             <ul className={styles.userOptions}>
@@ -28,8 +28,8 @@ const Header = ({ title }) => {
                     </>
                 ) : (
                         <>
-                            <li><Link to='/login' className={styles.link}>Log in</Link></li>
-                            <li><Link to='/register' className={styles.link}>Register</Link></li>
+                            <Link to='/login'><li className={styles.navLink}>Log in</li></Link>
+                            <Link to='/register'><li className={styles.navLink}>Register</li></Link>
                         </>
                 )}
             </ul>

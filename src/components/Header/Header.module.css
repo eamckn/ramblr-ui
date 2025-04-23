@@ -26,28 +26,27 @@ header::after {
 .title {
   font-size: 2rem;
   color: var(--primary-color);
+
+  transition: all 0.3s ease-in;
 }
 
-.link {
-  text-decoration: none;
+.navLink {
+  font-size: 1.15rem;
+  color: var(--primary-color);
+
+  transition: all 0.3s ease-in;
+}
+
+.title:hover,
+.navLink:hover {
+  transform: scale(1.1);
+  color: var(--secondary-color);
 }
 
 .userOptions {
   display: flex;
   align-items: center;
   gap: 1rem;
-
-  li {
-    font-size: 1.15rem;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  a:visited {
-    color: inherit;
-  }
 }
 
 .userMessage {
