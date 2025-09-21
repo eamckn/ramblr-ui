@@ -19,7 +19,7 @@ const Root = () => {
     const getData = async () => {
             setPostsLoading(true)
             try {
-                const response = await fetch('http://localhost:8080/posts')
+                const response = await fetch('http://localhost:8080/posts/published')
                 if (response.status >= 500) {
                     throw new Error('Server error')
                 }
