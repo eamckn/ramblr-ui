@@ -19,7 +19,7 @@ const Post = () => {
         <div className={styles.postComments}>
             <div className={styles.post}>
                 <h1 className={styles.title}>{postData.title}</h1>
-                <p className={styles.content}>{postData.content}</p>
+                <p className={styles.content} dangerouslySetInnerHTML={{__html: postData.content}}/>
             </div>
             <div className={styles.commentSection}>
                 {postData.comments.map((comment, index) => {
