@@ -5,14 +5,13 @@ import FormErrors from "../FormErrors/FormErrors"
 import getPasswordErrors from "../../utils/passwordUtils"
 import styles from './Form.module.css'
 
-const Form = ({ type = 'login' }) => {
+const Form = ({ submitType, name, buttonName }) => {
 
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const [loginErrors, setLoginErrors] = useState([])
-    const [passwordErrors, setPasswordErrors] = useState([])
+    const [errors, setErrors] = useState([])
 
     const { logIn, register } = useContext(AuthContext)
 
@@ -23,101 +22,83 @@ const Form = ({ type = 'login' }) => {
         if (passwordErrors.length === 0) {
             return true
         } else {
-            setPasswordErrors([...passwordErrors])
+            setErrors([...passwordErrors])
             return false
         }
     }
 
     const handleEmailInput = (e) => {
-        e.preventDefault()
         setEmail(e.target.value)
     }
 
     const handleUsernameInput = (e) => {
-        e.preventDefault()
         setUsername(e.target.value)
     }
 
     const handlePasswordInput = (e) => {
-        e.preventDefault()
         setPassword(e.target.value)
     }
 
-    const handleRegistration = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        if (isValidPassword()) {
-            const registrationSuccess = await register(email, username, password)
-            if (registrationSuccess) {
-                navigate('/')
-            }
-        }
-    }
-
-    const handleLogin = async (e) => {
-        e.preventDefault()
-        const logInSuccess = await logIn(email, password)
-        if (logInSuccess) {
-            navigate('/')
-        } else {
-            setLoginErrors(['The email or password you entered is incorrect. Please try again'])
+        switch (submitType) {
+            // REGISTER
+            case 'register':
+                e.preventDefault()
+                if (isValidPassword()) {
+                    if (await register(email, username, password)) {
+                        navigate('/')
+                    } else {
+                        setErrors(['There was an error registering you. Please try again.'])
+                    }
+                }
+                break
+            // LOGIN
+            case 'login':
+            default:
+                if (await logIn(email, password)) {
+                    navigate('/')
+                    break
+                } else {
+                    setErrors(['The email or password you entered is incorrect. Please try again'])
+                    break
+                }
         }
     }
 
     return (
         <div className={styles.container}>
-            {type === "login" ? (
-                <form className={styles.userForm} onSubmit={handleLogin}>
-                    <h1 className={styles.formName}>Login</h1>
+            <form className={styles.userForm} onSubmit={handleSubmit}>
+                <h1 className={styles.formName}>{name}</h1>
+                {submitType == 'register' && 
                     <input className={styles.formInput}
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={handleEmailInput}
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Username"
+                    value={username}
+                    onChange={handleUsernameInput}
                         required />
-                    <input className={styles.formInput}
-                        type="password"
-                        name="password"
-                        id="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={handlePasswordInput}
-                        required />
-                    {loginErrors.length > 0 && <FormErrors errors={loginErrors} />}
-                    <button className={styles.formButton} type="submit">Log in</button>
-                </form>
-            ) : (
-                    <form className={styles.userForm} onSubmit={handleRegistration}>
-                        <h1 className={styles.formName}>Register</h1>
-                        <input className={styles.formInput}
-                            type="text"
-                            name="username"
-                            id="username"
-                            placeholder="Username"
-                            value={username}
-                            onChange={handleUsernameInput}
-                            required />
-                        <input className={styles.formInput}
-                            type="email"
-                            name="email"
-                            id="email"
-                            placeholder="Email"
-                            value={email}
-                            onChange={handleEmailInput}
-                            required />
-                        <input className={styles.formInput}
-                            type="password"
-                            name="password"
-                            id="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={handlePasswordInput}
-                            required />
-                        {passwordErrors.length > 0 && <FormErrors errors={passwordErrors} />}
-                        <button className={styles.formButton} type="submit">Register</button>
-                    </form>
-            )}
+                }
+                <input className={styles.formInput}
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={handleEmailInput}
+                    required />
+                <input className={styles.formInput}
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={handlePasswordInput}
+                    required />
+                {errors.length > 0 && <FormErrors errors={errors} />}
+                <button className={styles.formButton} type="submit">{buttonName}</button>
+            </form>
         </div>
     )
 

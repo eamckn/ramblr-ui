@@ -14,8 +14,8 @@ function App() {
         <Route path='/' element={<Root />}>
           <Route index element={<Home />} />
           <Route path='posts/:postId' element={<Post />}  />
-          <Route path='/login' element={<Form key='login' type='login'/>} />
-          <Route path='/register' element={<Form key='register' type='register' />} />
+          <Route path='/login' element={<Form key='login' submitType='login' name='Login' buttonName='Log in'/>} />
+          <Route path='/register' element={<Form key='register' submitType='register' name='Register' buttonName='Register' />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
