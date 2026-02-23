@@ -22,12 +22,12 @@ const NewComment = () => {
         try {
             e.preventDefault()
             setSubmitting(true)
-            const token = localStorage.getItem('token')
+            const token = localStorage.getItem('ramblrUserToken')
             const response = await fetch(`http://localhost:3000/posts/${postId}/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `${token}`
                 },
                 body: JSON.stringify({ content, userId: user.id })
             })

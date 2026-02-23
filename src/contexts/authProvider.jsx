@@ -13,12 +13,11 @@ const AuthProvider = ({ children }) => {
 
     const verifyToken = async () => {
         try {
-            const token = localStorage.getItem('token')
+            const token = localStorage.getItem('ramblrUserToken')
             if (token) {
-                const authHeader = 'Bearer ' + token;
                 const response = await fetch('http://localhost:3000/verify', {
                     headers: {
-                        'Authorization': `${authHeader}`
+                        'Authorization': `${token}`
                     }
                 })
                 if (response.ok) {
@@ -26,7 +25,7 @@ const AuthProvider = ({ children }) => {
                     setUser(json.user)
                 } else {
                     setUser(null)
-                    console.error(`Invalid JWT value retreived from key 'token' in localStorage. Please try logging in again to receive a new token.`)
+                    console.error(`Invalid JWT value retreived from key 'ramblrUserToken' in localStorage. Please try logging in again to receive a new token.`)
                 }
             }
         } catch (error) {
@@ -48,7 +47,7 @@ const AuthProvider = ({ children }) => {
             if (response.ok) {
                 const json = await response.json()
                 const token = json.token
-                localStorage.setItem('token', token)
+                localStorage.setItem('ramblrUserToken', token)
                 verifyToken()
                 return true
             } else {
@@ -71,7 +70,7 @@ const AuthProvider = ({ children }) => {
             if (response.ok) {
                 const json = await response.json()
                 const token = json.token
-                localStorage.setItem('token', token)
+                localStorage.setItem('ramblrUserToken', token)
                 verifyToken()
                 return true
             } else {
@@ -85,17 +84,16 @@ const AuthProvider = ({ children }) => {
 
     const logOut = async () => {
         try {
-            const token = localStorage.getItem('token')
-            const authHeader = 'Bearer ' + token;
+            const token = localStorage.getItem('ramblrUserToken')
             const response = await fetch('http://localhost:3000/log-out', {
                 method: 'POST',
                 headers: {
-                        'Authorization': `${authHeader}`
+                        'Authorization': `${token}`
                     },
             })
             if (response.ok) {
                 setUser(null)
-                localStorage.removeItem('token')
+                localStorage.removeItem('ramblrUserToken')
             } else {
                 console.error('Logout unsuccessful due to unexpected server error. Please try again.')
             }
