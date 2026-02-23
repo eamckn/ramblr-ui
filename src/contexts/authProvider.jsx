@@ -85,7 +85,9 @@ const AuthProvider = ({ children }) => {
 
     const logOut = async () => {
         try {
-            const response = await fetch('http://localhost:3000/log-out')
+            const response = await fetch('http://localhost:3000/log-out', {
+                method: 'POST',
+            })
             if (response.ok) {
                 setUser(null)
                 localStorage.removeItem('token')
