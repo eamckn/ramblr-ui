@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { formatDate } from "../../utils/formatTimestamp"
 import styles from './Preview.module.css'
 
 const Preview = ({ id, title, content, timestamp, commentCount, animationOrder }) => {
@@ -10,16 +11,6 @@ const Preview = ({ id, title, content, timestamp, commentCount, animationOrder }
     ) : (
             slicedContent + '...'
         )
-    
-    function formatDate(timestamp) {
-        const date = new Date(timestamp)
-
-        const month = date.toLocaleString('default', { month: 'long' });
-        const day = String(date.getDate()).padStart(2, '0');
-        const year = date.getFullYear();
-
-        return `${month} ${day}, ${year}`;
-    }
 
     return (
         <div className={styles.preview} style={{ '--animation-order': `${animationOrder}`}}>
