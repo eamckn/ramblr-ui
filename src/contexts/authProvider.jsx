@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
             const token = localStorage.getItem('token')
             if (token) {
                 const authHeader = 'Bearer ' + token;
-                const response = await fetch('http://localhost:8080/verify', {
+                const response = await fetch('http://localhost:3000/verify', {
                     headers: {
                         'Authorization': `${authHeader}`
                     }
@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
 
     const register = async (email, username, password) => {
         try {
-            const response = await fetch('http://localhost:8080/register', {
+            const response = await fetch('http://localhost:3000/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ const AuthProvider = ({ children }) => {
 
     const logIn = async (email, password) => {
         try {
-            const response = await fetch('http://localhost:8080/log-in', {
+            const response = await fetch('http://localhost:3000/log-in', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ const AuthProvider = ({ children }) => {
 
     const logOut = async () => {
         try {
-            const response = await fetch('http://localhost:8080/log-out')
+            const response = await fetch('http://localhost:3000/log-out')
             if (response.ok) {
                 setUser(null)
                 localStorage.removeItem('token')

@@ -23,7 +23,7 @@ const NewComment = () => {
             e.preventDefault()
             setSubmitting(true)
             const token = localStorage.getItem('token')
-            const response = await fetch(`http://localhost:8080/posts/${postId}/comments`, {
+            const response = await fetch(`http://localhost:3000/posts/${postId}/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
