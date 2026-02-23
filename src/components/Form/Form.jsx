@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useContext, useState } from "react"
 import AuthContext from "../../contexts/authContext"
 import FormErrors from "../FormErrors/FormErrors"
-import passwordUtils from "../../utils/passwordUtils"
+import getPasswordErrors from "../../utils/passwordUtils"
 import styles from './Form.module.css'
 
 const Form = ({ type = 'login' }) => {
@@ -19,23 +19,11 @@ const Form = ({ type = 'login' }) => {
     const navigate = useNavigate()
 
     const isValidPassword = () => {
-        let currentPasswordErrors = []
-        if (!passwordUtils.hasNumbers(password)) {
-            currentPasswordErrors.push('Your password must contain at least 3 numbers')
-        }
-        if (!passwordUtils.hasSpecialChar(password)) {
-            currentPasswordErrors.push('Your password must contain at least 1 special character')
-        }
-        if (!passwordUtils.hasUpperCase(password)) {
-            currentPasswordErrors.push('Your password must contain at least 1 uppercase letter')
-        }
-        if (!passwordUtils.hasMinLength(password)) {
-            currentPasswordErrors.push('Your password must be at least 8 characters long')
-        }
-        if (currentPasswordErrors.length === 0) {
+        const passwordErrors = getPasswordErrors(password)
+        if (passwordErrors.length === 0) {
             return true
         } else {
-            setPasswordErrors([...currentPasswordErrors])
+            setPasswordErrors([...passwordErrors])
             return false
         }
     }

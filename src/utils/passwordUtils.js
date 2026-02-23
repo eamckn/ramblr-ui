@@ -37,9 +37,27 @@ const hasMinLength = (password) => {
   } else return false;
 };
 
-export default {
-  hasNumbers,
-  hasSpecialChar,
-  hasUpperCase,
-  hasMinLength,
+const getPasswordErrors = (password) => {
+  let currentPasswordErrors = [];
+  if (!hasNumbers(password)) {
+    currentPasswordErrors.push("Your password must contain at least 3 numbers");
+  }
+  if (!hasSpecialChar(password)) {
+    currentPasswordErrors.push(
+      "Your password must contain at least 1 special character"
+    );
+  }
+  if (!hasUpperCase(password)) {
+    currentPasswordErrors.push(
+      "Your password must contain at least 1 uppercase letter"
+    );
+  }
+  if (!hasMinLength(password)) {
+    currentPasswordErrors.push(
+      "Your password must be at least 8 characters long"
+    );
+  }
+  return currentPasswordErrors;
 };
+
+export default getPasswordErrors;
