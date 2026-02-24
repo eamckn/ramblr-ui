@@ -1,6 +1,8 @@
 import { useState, useEffect} from "react";
 import AuthContext from "./authContext";
 
+const base_url = import.meta.env.VITE_API_BASE_URL
+
 const AuthProvider = ({ children }) => {
     
     const [user, setUser] = useState(null)
@@ -12,10 +14,11 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const verifyToken = async () => {
+        console.log(base_url)
         try {
             const token = localStorage.getItem('ramblrUserToken')
             if (token) {
-                const response = await fetch('http://localhost:3000/verify', {
+                const response = await fetch(`${base_url}/verify`, {
                     headers: {
                         'Authorization': `${token}`
                     }
@@ -37,7 +40,7 @@ const AuthProvider = ({ children }) => {
 
     const register = async (email, username, password) => {
         try {
-            const response = await fetch('http://localhost:3000/register', {
+            const response = await fetch(`${base_url}/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -60,7 +63,7 @@ const AuthProvider = ({ children }) => {
 
     const logIn = async (email, password) => {
         try {
-            const response = await fetch('http://localhost:3000/log-in', {
+            const response = await fetch(`${base_url}/log-in`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -85,7 +88,7 @@ const AuthProvider = ({ children }) => {
     const logOut = async () => {
         try {
             const token = localStorage.getItem('ramblrUserToken')
-            const response = await fetch('http://localhost:3000/log-out', {
+            const response = await fetch(`${base_url}/log-out`, {
                 method: 'POST',
                 headers: {
                         'Authorization': `${token}`

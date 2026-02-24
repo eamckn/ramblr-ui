@@ -3,6 +3,8 @@ import { useParams, useOutletContext } from 'react-router-dom';
 import AuthContext from '../../contexts/authContext';
 import styles from './NewComment.module.css'
 
+const base_url = import.meta.env.VITE_API_BASE_URL
+
 const NewComment = () => {
 
     const [content, setContent] = useState('')
@@ -23,7 +25,7 @@ const NewComment = () => {
             e.preventDefault()
             setSubmitting(true)
             const token = localStorage.getItem('ramblrUserToken')
-            const response = await fetch(`http://localhost:3000/posts/${postId}/comments`, {
+            const response = await fetch(`${base_url}/posts/${postId}/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
